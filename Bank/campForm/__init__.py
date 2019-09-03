@@ -6,7 +6,7 @@ import csv
 
 
 # Path from main
-UI_NAME = "campUI.ui"
+UI_NAME = "page1.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
 
 path = os.getcwd()
