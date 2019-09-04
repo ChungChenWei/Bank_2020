@@ -1,9 +1,10 @@
 from PyQt5 import QtWidgets, QtGui, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtCore import pyqtSignal as qtsig
 import os
 import csv
+import json
 #from campUI import Ui_MainWindow
-
 
 # Path from main
 UI_NAME = "page1.ui"
@@ -24,16 +25,23 @@ BT_Deposit
 '''
 
 class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
+
+    AccSig = qtsig(str,int)
+    WithOpenSig = qtsig()
+    DepoOpenSig = qtsig()
+
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
         self.iniGuiEvent()
+        #print(self.Account_dic.keys())
     
     def iniGuiEvent(self):
         # Initial
         #self.LCD_Length.display("5")
         #self.LCD_Interest_Rate.display("2")
+        self.LE_Group.setFocus()
 
         # Timer setup
         self.Time_Refresh()
@@ -54,17 +62,32 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
         Time_Out = Date.toString("hh:mm:ss")
-        #Date_Out = Date.toString("yyyy年MM月dd日")
-        #self.Mark = Date.toString("yyyy/MM/dd hh:mm")
         self.LCD_Time.display(Time_Out)
-        #self.L_Date.setText(Date_Out)
 
     def WithDrawal(self):
-        QtWidgets.QMessageBox.information(self,'測試','這是WithDrawal按下去之後會跳出來的東西')
+        if(self.LE_Group.text()!=""):
+            self.WithOpenSig.emit()
+        else:
+            print("Empty Account!\n")
+        #QtWidgets.QMessageBox.information(self,'測試','這是WithDrawal按下去之後會跳出來的東西')
 
     def Deposit(self):
-        QtWidgets.QMessageBox.information(self,'測試','這是Deposit按下去之後會跳出來的東西')
+        if(self.LE_Group.text()!=""):
+            self.DepoOpenSig.emit()
+        else:
+            print("Empty Account!\n")
+        #QtWidgets.QMessageBox.information(self,'測試','這是Deposit按下去之後會跳出來的東西')
 
     def Group_Enter(self):
-        QtWidgets.QMessageBox.information(self,'測試','這是組別輸入完會跳出來的東西')
+        with open("./Data/Account.json","r",encoding='utf8') as jsonfile:
+            self.Account_dic = json.load(jsonfile)
+        self.Account = self.sender().text()
+        if(self.Account not in self.Account_dic.keys()):
+            QtWidgets.QMessageBox.warning(self,'警告','查無學號!')
+            self.LE_Group.clear()
+            self.LE_Group.setFocus()
+        else:
+            print("Correct Account!")
+            self.AccSig.emit(self.Account,self.Account_dic[self.Account])
+            # Some Success Message Appare on the Ui
         
