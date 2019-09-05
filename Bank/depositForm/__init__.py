@@ -37,6 +37,7 @@ class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Account Update
         self.acc = Account
         self.money = Money
+        self.depo_money = 0
 
         self.LCD_Total.display(str(Money))
         self.LE_Deposit.setText("")
@@ -58,11 +59,18 @@ class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
         self.BT_Cancel.clicked.connect(self.close)
 
     def Deposit(self):
+        try:
+            self.depo_money = int(self.LE_Deposit.text())
+        except:
+            self.depo_money = 0
         #QtWidgets.QMessageBox.information(self,'測試','這是確定按下去之後會跳出來的東西')
-        self.money += self.depo_money
-        print("Deposit",self.depo_money,"Remain",self.money)
-        self.DepoSig.emit(self.acc,self.money)
-        self.close()
+        if(self.depo_money==0):
+            QtWidgets.QMessageBox.warning(self,'警告','金額錯誤!')
+        else:
+            self.money += self.depo_money
+            print("Deposit",self.depo_money,"Remain",self.money)
+            self.DepoSig.emit(self.acc,self.money)
+            self.close()
         
 
     def Deposit_Enter(self):
