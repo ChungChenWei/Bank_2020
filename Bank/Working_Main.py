@@ -58,6 +58,7 @@ if __name__ == "__main__":
     def ChildClose():
         MainInterface.LE_Group.clear()
         MainInterface.LE_Group.setFocus()
+        MainInterface.Account = ""
 
     #def run_app():
     app = QtWidgets.QApplication(sys.argv)
@@ -70,9 +71,9 @@ if __name__ == "__main__":
     MainInterface.WithOpenSig.connect(Withdrawal.showMaximized)
     MainInterface.DepoOpenSig.connect(Deposit.showMaximized)
     MainInterface.IncreRateSig.connect(Bank_Update)
+    MainInterface.AccSig.connect(AccSetup)
 
     # Signal and Slot
-    MainInterface.AccSig.connect(AccSetup)
     Withdrawal.CloseSig.connect(ChildClose)
     Withdrawal.WithSig.connect(AccUpdate)
     Deposit.CloseSig.connect(ChildClose)

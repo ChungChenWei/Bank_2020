@@ -60,11 +60,18 @@ class WithdrawalUi(QtWidgets.QMainWindow, Ui_MainWindow):
         self.BT_Cancel.clicked.connect(self.close)
 
     def WithDrawal(self):
+        try:
+            self.with_money = int(self.LE_Withdrawal.text())
+        except:
+            self.with_money = 0
         #QtWidgets.QMessageBox.information(self,'測試','這是確定按下去之後會跳出來的東西')
-        self.money -= self.with_money
-        print("WithDrawal",self.with_money,"Remain",self.money)
-        self.WithSig.emit(self.acc,self.money)
-        self.close()    
+        if(self.with_money==0):
+            QtWidgets.QMessageBox.warning(self,'警告','金額錯誤!')
+        else:
+            self.money -= self.with_money
+            print("WithDrawal",self.with_money,"Remain",self.money)
+            self.WithSig.emit(self.acc,self.money)
+            self.close()    
 
     def Withdrawal_Enter(self):
         try:

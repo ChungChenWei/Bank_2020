@@ -52,13 +52,9 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         time.start()
 
         # Signal and Slot
-        # LE
-        self.LE_Group.returnPressed.connect(self.Group_Enter)
-
         # Button
-        self.BT_WithDrawal.clicked.connect(self.WithDrawal)
-        self.BT_Deposit.clicked.connect(self.Deposit)
-
+        self.BT_WithDrawal.clicked.connect(self.Group_Enter)
+        self.BT_Deposit.clicked.connect(self.Group_Enter)
 
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
@@ -69,30 +65,27 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
             self.IncreRateSig.emit()
         self.LCD_Time.display(Time_Out)
 
-    def WithDrawal(self):
-        if(self.LE_Group.text()!=""):
-            self.WithOpenSig.emit()
-        else:
-            print("Empty Account!\n")
-        #QtWidgets.QMessageBox.information(self,'測試','這是WithDrawal按下去之後會跳出來的東西')
-
-    def Deposit(self):
-        if(self.LE_Group.text()!=""):
-            self.DepoOpenSig.emit()
-        else:
-            print("Empty Account!\n")
-        #QtWidgets.QMessageBox.information(self,'測試','這是Deposit按下去之後會跳出來的東西')
-
     def Group_Enter(self):
+        # Open Account Data
         with open("./Data/Account.json","r",encoding='utf8') as jsonfile:
             self.Account_dic = json.load(jsonfile)
-        self.Account = self.sender().text()
+        
+        # Get Input Account
+        self.Account = self.LE_Group.text()
+        
+        # Checking for Account Existence
         if(self.Account not in self.Account_dic.keys()):
             QtWidgets.QMessageBox.warning(self,'警告','查無學號!')
+            self.Account = ""
             self.LE_Group.clear()
             self.LE_Group.setFocus()
         else:
             print("Correct Account!")
             self.AccSig.emit(self.Account,self.Account_dic[self.Account])
+            if(self.sender().objectName()=="BT_WithDrawal"):
+                self.WithOpenSig.emit()
+            elif(self.sender().objectName()=="BT_Deposit"):
+                self.DepoOpenSig.emit()
+
             # Some Success Message Appare on the Ui
         
