@@ -29,6 +29,7 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     AccSig = qtsig(str,int)
     WithOpenSig = qtsig()
     DepoOpenSig = qtsig()
+    IncreRateSig = qtsig()
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -62,6 +63,10 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
         Time_Out = Date.toString("hh:mm:ss")
+        Count_Out = int(Date.toString("ss"))
+        if(Count_Out%10==0):
+            print("Time to add")
+            self.IncreRateSig.emit()
         self.LCD_Time.display(Time_Out)
 
     def WithDrawal(self):
