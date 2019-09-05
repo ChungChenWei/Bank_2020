@@ -37,6 +37,7 @@ class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Account Update
         self.acc = Account
         self.money = Money
+        self.depo_money = 0
 
         self.LCD_Total.display(str(Money))
         self.LE_Deposit.setText("")
