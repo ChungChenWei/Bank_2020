@@ -38,6 +38,7 @@ class WithdrawalUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Account Update
         self.acc = Account
         self.money = Money
+        self.with_money = 0
 
         self.LCD_Total.display(str(Money))
         self.LE_Withdrawal.setText("")
