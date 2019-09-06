@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1319</width>
     <height>755</height>
    </rect>
   </property>
@@ -149,11 +149,14 @@
         <item row="0" column="1">
          <layout class="QGridLayout" name="Grid_Rate" rowstretch="0" columnstretch="0">
           <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="LE_Account">
             <property name="font">
              <font>
               <pointsize>30</pointsize>
              </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
             </property>
            </widget>
           </item>
@@ -231,14 +234,18 @@
          </spacer>
         </item>
         <item row="0" column="1">
-         <widget class="QLCDNumber" name="lcdNumber"/>
+         <widget class="QLCDNumber" name="LCD_Trade">
+          <property name="digitCount">
+           <number>10</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item row="7" column="0">
        <layout class="QGridLayout" name="Grid_Button">
         <item row="0" column="1">
-         <widget class="QPushButton" name="BT_Deposit">
+         <widget class="QPushButton" name="BT_Back">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -257,7 +264,39 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QListWidget" name="listWidget"/>
+         <widget class="QTableWidget" name="Table">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>交易時間</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>存入</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>領出</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>餘額</string>
+           </property>
+          </column>
+         </widget>
         </item>
        </layout>
       </item>
@@ -303,7 +342,11 @@
          </spacer>
         </item>
         <item row="0" column="1">
-         <widget class="QLCDNumber" name="lcdNumber_2"/>
+         <widget class="QLCDNumber" name="LCD_Money">
+          <property name="digitCount">
+           <number>10</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -316,8 +359,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>22</height>
+     <width>1319</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
