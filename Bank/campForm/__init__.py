@@ -21,7 +21,6 @@ LCD_Time
 
 BT_WithDrawal
 BT_Deposit
-
 '''
 
 class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -29,20 +28,21 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     AccSig = qtsig(str,int)
     WithOpenSig = qtsig()
     DepoOpenSig = qtsig()
-    IncreRateSig = qtsig()
+    FinalOpenSig = qtsig()
+    IncreRateSig = qtsig(str)
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
         self.iniGuiEvent()
-        #print(self.Account_dic.keys())
     
     def iniGuiEvent(self):
         # Initial
         #self.LCD_Length.display("5")
         #self.LCD_Interest_Rate.display("2")
         self.LE_Group.setFocus()
+        self.Account = ""
 
         # Timer setup
         self.Time_Refresh()
@@ -51,19 +51,19 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         time.timeout.connect(self.Time_Refresh)
         time.start()
 
-        # Signal and Slot
-        # Button
+        # Button Connect
         self.BT_WithDrawal.clicked.connect(self.Group_Enter)
         self.BT_Deposit.clicked.connect(self.Group_Enter)
+        #self.BT_AccountSearch.conntect(self.Group_Enter)
 
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
-        Time_Out = Date.toString("hh:mm:ss")
+        self.Time_Out = Date.toString("hh:mm:ss")
         Count_Out = int(Date.toString("ss"))
         if(Count_Out%10==0):
             print("Time to add")
-            self.IncreRateSig.emit()
-        self.LCD_Time.display(Time_Out)
+            self.IncreRateSig.emit(self.Account)
+        self.LCD_Time.display(self.Time_Out)
 
     def Group_Enter(self):
         # Open Account Data
@@ -80,12 +80,14 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
             self.LE_Group.clear()
             self.LE_Group.setFocus()
         else:
-            print("Correct Account!")
+            print("Correct Account!\n")
             self.AccSig.emit(self.Account,self.Account_dic[self.Account])
             if(self.sender().objectName()=="BT_WithDrawal"):
                 self.WithOpenSig.emit()
             elif(self.sender().objectName()=="BT_Deposit"):
-                self.DepoOpenSig.emit()
+               self.DepoOpenSig.emit()
+            elif(self.sender().objectName()=="BT_AccountSearch"):
+                self.FinalOpenSig.emit()
 
             # Some Success Message Appare on the Ui
         

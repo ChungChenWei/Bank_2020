@@ -4,85 +4,67 @@ from PyQt5.QtCore import pyqtSignal as qtsig
 import os
 #from withdrawalUI import Ui_MainWindow
 
-
 # Path from main
 UI_NAME = "withdrawal.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
-
-path = os.getcwd()
-qtCreatorFile = path + os.sep + UI_PATH
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-
-''' Object_Name
-LCD_Total
-
-LE_Withdrawal
-
-BT_Confirm
-BT_Cancel
-
-'''
+Ui_MainWindow, QtBaseClass = uic.loadUiType(UI_PATH)
 
 class WithdrawalUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
+    # Self-Define Signal
+    # WithSig  : After Withdrwawal, it will send Account, AccountMoney, DepositMoney and WithDrawalMoney information
+    # FinalSig : Update the final page
+    WithSig  = qtsig(str,int,int,int)
+    FinalSig = qtsig()
     CloseSig = qtsig()
-    WithSig  = qtsig(str,int)
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        self.iniGuiEvent()
+        # Button Connect
+        self.BT_Confirm.clicked.connect(self.WithDrawal)
+        self.BT_Cancel.clicked.connect(self.close)
     
     def Open_Init(self,Account,Money):
         # Account Update
-        self.acc = Account
-        self.money = Money
-        self.with_money = 0
-
-        self.LCD_Total.display(str(Money))
+        self.Account = Account
+        self.AccountMoney = Money
+        self.WithDrawalMoney = 0
+        # Display Update
+        self.LCD_Total.display(str(self.AccountMoney))
         self.LE_Withdrawal.setText("")
-        self.LE_Withdrawal.setFocus()
+        self.LE_Withdrawal.setFocus()    
 
-        #print("Withdrawal Mode\nSetup",Account,Money)
+    def WithDrawal(self):
+        # Try to transfer the LineEdit Content to Integer
+        try:
+            # If possible, continue checking
+            self.WithDrawalMoney = int(self.LE_Withdrawal.text())
+            # If there is not enough money to withdrawal, show error message
+            if(self.WithDrawalMoney > self.AccountMoney):
+                QtWidgets.QMessageBox.warning(self,'警告','帳戶餘額不足!')
+            # If the input number is a negative number
+            elif(self.WithDrawalMoney < 0):
+                QtWidgets.QMessageBox.warning(self,'警告','金額不能為負!')
+            else:
+                # Calculate the result and send message to back side
+                self.AccountMoney -= self.WithDrawalMoney
+                print("WithDrawal",self.WithDrawalMoney,"Remain",self.AccountMoney)
+                # Send information
+                self.WithSig.emit(self.Account,self.AccountMoney,0,self.WithDrawalMoney)
+                # After send message, call final page
+                self.FinalSig.emit()
+                # And close this page
+                self.close()
+        except:
+            # If impossible, show error message
+            QtWidgets.QMessageBox.warning(self,'警告','金額無法辨識!')
+        
+        # If not close, then clean up the LineEdit and reset the focus
+        self.LE_Withdrawal.clear()
+        self.LE_Withdrawal.setFocus()
 
     def closeEvent(self,event):
         self.CloseSig.emit()
         event.accept()
-
-    def iniGuiEvent(self):
-        # Signal and Slot
-        # LE
-        self.LE_Withdrawal.returnPressed.connect(self.Withdrawal_Enter)
-
-        # Button
-        self.BT_Confirm.clicked.connect(self.WithDrawal)
-        self.BT_Cancel.clicked.connect(self.close)
-
-    def WithDrawal(self):
-        try:
-            self.with_money = int(self.LE_Withdrawal.text())
-        except:
-            self.with_money = 0
-        #QtWidgets.QMessageBox.information(self,'測試','這是確定按下去之後會跳出來的東西')
-        if(self.with_money==0):
-            QtWidgets.QMessageBox.warning(self,'警告','金額錯誤!')
-        else:
-            self.money -= self.with_money
-            print("WithDrawal",self.with_money,"Remain",self.money)
-            self.WithSig.emit(self.acc,self.money)
-            self.close()    
-
-    def Withdrawal_Enter(self):
-        try:
-            self.with_money = int(self.sender().text())
-            if(self.with_money > self.money):
-                QtWidgets.QMessageBox.warning(self,'警告','餘額不足!')
-                self.LE_Withdrawal.clear()
-                self.LE_Withdrawal.setFocus()
-        except:
-            self.with_money = 0
-            QtWidgets.QMessageBox.warning(self,'警告','金額錯誤!')
-            self.LE_Withdrawal.clear()
-            self.LE_Withdrawal.setFocus()
-        #print("Enter",self.with_money)
