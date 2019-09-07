@@ -14,9 +14,9 @@ import shutil
 
 ####'''
 # Under Develope
-# 1.作業時 銀行不能跳
+# 1.小隊積分
+# 2.輸入完帳號才會顯示"請選擇服務項目"和下面的選項
 ####
-
 
 if __name__ == "__main__":
 
@@ -84,6 +84,10 @@ if __name__ == "__main__":
         MainInterface.LE_Group.clear()
         MainInterface.LE_Group.setFocus()
         MainInterface.Account = ""
+        MainInterface.BT_WithDrawal.hide()
+        MainInterface.BT_Deposit.hide()
+        MainInterface.BT_AccountSearch.hide()
+        MainInterface.L_Serve.hide()
 
     def log_Update(Account,Time,depo,withd,Money):
         try:
@@ -103,6 +107,7 @@ if __name__ == "__main__":
     Account_In_Use      = []
     Account_No_Interest = []
     Account_Data        = {}
+    Account_Init_List   = "./Data/TestAccount.csv"
     InterestRate        = 0.01
 
     # if Account.json is not exit, then reset the account setting
@@ -116,7 +121,7 @@ if __name__ == "__main__":
         csvfile = open("./Data/Account_In_Use.csv","w")
         csvfile.close()
         # Load Accout List
-        with open("./Data/Account_List.csv","r") as csvfile:
+        with open(Account_Init_List,"r") as csvfile:
             for acc in next(csv.reader(csvfile)):
                 Account_Data[acc] = 0
         # Reset Account Data

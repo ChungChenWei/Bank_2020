@@ -43,6 +43,10 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.LCD_Interest_Rate.display("2")
         self.LE_Group.setFocus()
         self.Account = ""
+        self.BT_WithDrawal.hide()
+        self.BT_Deposit.hide()
+        self.BT_AccountSearch.hide()
+        self.L_Serve.hide()
 
         # Timer setup
         self.Time_Refresh()
@@ -54,7 +58,8 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Button Connect
         self.BT_WithDrawal.clicked.connect(self.Group_Enter)
         self.BT_Deposit.clicked.connect(self.Group_Enter)
-        #self.BT_AccountSearch.conntect(self.Group_Enter)
+        self.BT_AccountSearch.clicked.connect(self.Group_Enter)
+        self.LE_Group.returnPressed.connect(self.Group_Pressed)
 
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
@@ -65,7 +70,7 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
             self.IncreRateSig.emit(self.Account)
         self.LCD_Time.display(self.Time_Out)
 
-    def Group_Enter(self):
+    def Group_Pressed(self):
         # Open Account Data
         with open("./Data/Account.json","r",encoding='utf8') as jsonfile:
             self.Account_dic = json.load(jsonfile)
@@ -82,12 +87,18 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             print("Correct Account!\n")
             self.AccSig.emit(self.Account,self.Account_dic[self.Account])
-            if(self.sender().objectName()=="BT_WithDrawal"):
-                self.WithOpenSig.emit()
-            elif(self.sender().objectName()=="BT_Deposit"):
-               self.DepoOpenSig.emit()
-            elif(self.sender().objectName()=="BT_AccountSearch"):
-                self.FinalOpenSig.emit()
+            self.BT_WithDrawal.show()
+            self.BT_Deposit.show()
+            self.BT_AccountSearch.show()
+            self.L_Serve.show()
 
-            # Some Success Message Appare on the Ui
+            # Some Success Message Appare on the Ui        
+
+    def Group_Enter(self):
+        if(self.sender().objectName()=="BT_WithDrawal"):
+            self.WithOpenSig.emit()
+        elif(self.sender().objectName()=="BT_Deposit"):
+           self.DepoOpenSig.emit()
+        elif(self.sender().objectName()=="BT_AccountSearch"):
+            self.FinalOpenSig.emit()
         
