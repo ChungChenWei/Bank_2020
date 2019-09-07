@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1319</width>
+    <width>1590</width>
     <height>755</height>
    </rect>
   </property>
@@ -33,7 +33,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_7">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="Central_Grid" rowstretch="1,1,0,1,0,1,0,2,0,1" columnstretch="0">
+     <layout class="QGridLayout" name="Central_Grid" rowstretch="2,2,1,2,1,2,1,6,1,2" columnstretch="0">
       <item row="4" column="0">
        <spacer name="horizontalSpacer_4">
         <property name="orientation">
@@ -72,7 +72,7 @@
           </property>
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>20</pointsize>
             <weight>50</weight>
             <bold>false</bold>
@@ -124,7 +124,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>Chekiang Sung</family>
+            <family>SetoFont</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -179,7 +179,7 @@
          <widget class="QLabel" name="label_3">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
             <weight>50</weight>
             <bold>false</bold>
@@ -198,12 +198,12 @@
          <widget class="QLabel" name="label">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>元</string>
+           <string>萬元</string>
           </property>
          </widget>
         </item>
@@ -211,7 +211,7 @@
          <widget class="QLabel" name="L_Group">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
            </font>
           </property>
@@ -235,6 +235,11 @@
         </item>
         <item row="0" column="1">
          <widget class="QLCDNumber" name="LCD_Trade">
+          <property name="font">
+           <font>
+            <pointsize>40</pointsize>
+           </font>
+          </property>
           <property name="digitCount">
            <number>10</number>
           </property>
@@ -254,7 +259,7 @@
           </property>
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>Times New Roman</family>
             <pointsize>30</pointsize>
            </font>
           </property>
@@ -267,6 +272,7 @@
          <widget class="QTableWidget" name="Table">
           <property name="font">
            <font>
+            <family>標楷體</family>
             <pointsize>20</pointsize>
            </font>
           </property>
@@ -306,12 +312,12 @@
          <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>元</string>
+           <string>萬元</string>
           </property>
          </widget>
         </item>
@@ -319,7 +325,7 @@
          <widget class="QLabel" name="label_2">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
            </font>
           </property>
@@ -343,6 +349,11 @@
         </item>
         <item row="0" column="1">
          <widget class="QLCDNumber" name="LCD_Money">
+          <property name="font">
+           <font>
+            <pointsize>40</pointsize>
+           </font>
+          </property>
           <property name="digitCount">
            <number>10</number>
           </property>
@@ -359,7 +370,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1319</width>
+     <width>1590</width>
      <height>25</height>
     </rect>
    </property>

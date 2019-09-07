@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1590</width>
     <height>800</height>
    </rect>
   </property>
@@ -33,95 +33,8 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_7">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="Central_Grid" rowstretch="1,1,1,2,1,2,1,1" columnstretch="0">
-      <item row="3" column="0">
-       <layout class="QGridLayout" name="Grid_Group" columnstretch="1,1,3">
-        <item row="0" column="0" alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="L_Group">
-          <property name="font">
-           <font>
-            <family>BiauKai</family>
-            <pointsize>40</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>組別</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="LE_Group">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="5" column="0">
-       <layout class="QGridLayout" name="Grid_Button">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="BT_WithDrawal">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>BiauKai</family>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>帳戶提款 WITHDRAWAL</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="BT_Deposit">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>BiauKai</family>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>帳戶存款 DEPOSIT</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,2,2,4,2,4,1,2">
+      <item>
        <layout class="QGridLayout" name="Grid_Title">
         <property name="leftMargin">
          <number>0</number>
@@ -130,7 +43,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>Chekiang Sung</family>
+            <family>SetoFont</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -150,13 +63,13 @@
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
+      <item>
        <layout class="QGridLayout" name="Grid_Detail" columnstretch="1,1,1,2">
         <item row="0" column="0" alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="label_3">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
             <weight>50</weight>
             <bold>false</bold>
@@ -173,7 +86,7 @@
            <widget class="QLabel" name="label_4">
             <property name="font">
              <font>
-              <family>BiauKai</family>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
              </font>
             </property>
@@ -186,7 +99,7 @@
            <widget class="QLabel" name="label">
             <property name="font">
              <font>
-              <family>BiauKai</family>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
              </font>
             </property>
@@ -199,6 +112,7 @@
            <widget class="QLCDNumber" name="LCD_Length">
             <property name="font">
              <font>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
               <weight>50</weight>
               <bold>false</bold>
@@ -223,7 +137,7 @@
            <widget class="QLabel" name="label_2">
             <property name="font">
              <font>
-              <family>BiauKai</family>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
              </font>
             </property>
@@ -236,6 +150,7 @@
            <widget class="QLCDNumber" name="LCD_Interest_Rate">
             <property name="font">
              <font>
+              <family>標楷體</family>
               <pointsize>50</pointsize>
              </font>
             </property>
@@ -251,6 +166,7 @@
            <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
              </font>
             </property>
@@ -276,64 +192,13 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="0">
-       <spacer name="HS1">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>13</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="6" column="0">
-       <spacer name="HS2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="7" column="0">
-       <layout class="QGridLayout" name="Grid_Slogan">
-        <item row="0" column="0" alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="L_Slogan">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>BiauKai</family>
-            <pointsize>20</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>一 時 存 錢 一 時 爽 ， 一 直 存 錢 一 直 爽 ， 錢 多 就 比 誰 更 浪 ， 身 價 翻 倍 紅 不 讓</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0">
+      <item>
        <layout class="QGridLayout" name="Grid_Time" columnstretch="1,1,3">
         <item row="0" column="0" alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="L_Time">
           <property name="font">
            <font>
-            <family>BiauKai</family>
+            <family>標楷體</family>
             <pointsize>40</pointsize>
            </font>
           </property>
@@ -370,6 +235,187 @@
         </item>
        </layout>
       </item>
+      <item>
+       <layout class="QGridLayout" name="Grid_Group" columnstretch="1,1,3">
+        <item row="0" column="0" alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="L_Group">
+          <property name="font">
+           <font>
+            <family>標楷體</family>
+            <pointsize>40</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>帳號</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="LE_Group">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="L_Serve">
+          <property name="font">
+           <font>
+            <family>標楷體</family>
+            <pointsize>40</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>請選擇服務項目</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="Grid_Button" columnstretch="4,1,4,1,4">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="BT_Deposit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>帳戶存款 DEPOSIT</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="BT_WithDrawal">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>帳戶提款 WITHDRAWAL</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="HSA1">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="4">
+         <widget class="QPushButton" name="BT_AccountSearch">
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>餘額查詢 INQUIRY</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <spacer name="HSA2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="HS2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="Grid_Slogan">
+        <item row="0" column="0" alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="L_Slogan">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>標楷體</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>一 時 存 錢 一 時 爽 ， 一 直 存 錢 一 直 爽 ， 錢 多 就 比 誰 更 浪 ， 身 價 翻 倍 紅 不 讓</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
    </layout>
@@ -379,8 +425,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>22</height>
+     <width>1590</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
