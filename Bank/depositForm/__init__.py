@@ -2,13 +2,13 @@ from PyQt5 import QtWidgets, QtGui, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtCore import pyqtSignal as qtsig
 import os
-#from depositUI import Ui_MainWindow
-
+from deposit import Ui_MainWindow
+'''
 # Path from main
 UI_NAME = "deposit.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
 Ui_MainWindow, QtBaseClass = uic.loadUiType(UI_PATH)
-
+'''
 class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # Self-Define Signal

@@ -15,7 +15,6 @@ import shutil
 ####'''
 # Under Develope
 # 1.小隊積分
-# 2.輸入完帳號才會顯示"請選擇服務項目"和下面的選項
 ####
 
 if __name__ == "__main__":

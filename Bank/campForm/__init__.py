@@ -4,25 +4,14 @@ from PyQt5.QtCore import pyqtSignal as qtsig
 import os
 import csv
 import json
-#from campUI import Ui_MainWindow
-
+from page1 import Ui_MainWindow
+'''
 # Path from main
 UI_NAME = "page1.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
 
-path = os.getcwd()
-qtCreatorFile = path + os.sep + UI_PATH
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-
-''' Object_Name
-LCD_Length
-LCD_Interest_Rate
-LCD_Time
-
-BT_WithDrawal
-BT_Deposit
+Ui_MainWindow, QtBaseClass = uic.loadUiType(UI_PATH)
 '''
-
 class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
     AccSig = qtsig(str,int)
