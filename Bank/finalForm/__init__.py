@@ -31,12 +31,15 @@ class FinalUi(QtWidgets.QMainWindow, Ui_MainWindow):
         self.LE_Account.setText(Account)
         self.LCD_Trade.display(str(Trade))
         self.LCD_Money.display(str(Money))
-        # Open Log file
-        log = open("./Data/Log/"+Account+".csv","r", newline='')
-        Rows = csv.reader(log)
-        # Table Update
-        self.Table_Update(Rows)
-        log.close()
+        try:
+            # Open Log file
+            log = open("./Data/Log/"+Account+".csv","r", newline='')
+            Rows = csv.reader(log)
+            # Table Update
+            self.Table_Update(Rows)
+            log.close()
+        except:
+            pass
 
     def Table_Update(self,Input):
         self.Table.clearContents()

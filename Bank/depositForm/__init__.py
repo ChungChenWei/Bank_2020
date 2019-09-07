@@ -44,6 +44,8 @@ class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
             # If the input number is a negative number
             if(self.DepositMoney<0):
                 QtWidgets.QMessageBox.warning(self,'警告','金額不能為負!')
+            elif(self.DepositMoney<100):
+                QtWidgets.QMessageBox.warning(self,'警告','金額最小必須是100萬元!')
             else:
                 # Calculate the result and send message to back side
                 self.AccountMoney += self.DepositMoney
