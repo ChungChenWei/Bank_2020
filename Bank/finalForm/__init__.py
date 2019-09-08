@@ -3,13 +3,13 @@ from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtCore import pyqtSignal as qtsig
 import os
 import csv
-from final import Ui_MainWindow
-'''
+#from final import Ui_MainWindow
+
 # Path from main
 UI_NAME = "final.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
 Ui_MainWindow, QtBaseClass = uic.loadUiType(UI_PATH)
-'''
+
 class FinalUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # CloseSig : Before Close this window, tell the parten window to update

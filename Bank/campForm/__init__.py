@@ -4,14 +4,14 @@ from PyQt5.QtCore import pyqtSignal as qtsig
 import os
 import csv
 import json
-from page1 import Ui_MainWindow
-'''
+#from page1 import Ui_MainWindow
+
 # Path from main
 UI_NAME = "page1.ui"
 UI_PATH = "./GUI_Design/" + UI_NAME
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(UI_PATH)
-'''
+
 class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
     AccSig = qtsig(str,int)
@@ -53,8 +53,9 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
         self.Time_Out = Date.toString("hh:mm:ss")
+        Count_Time = int(Date.toString("mm"))
         Count_Out = int(Date.toString("ss"))
-        if(Count_Out%10==0):
+        if(Count_Time % 5 == 0 and Count_Out % 60 == 0):
             print("Time to add")
             self.IncreRateSig.emit(self.Account)
         self.LCD_Time.display(self.Time_Out)
@@ -73,6 +74,10 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
             self.Account = ""
             self.LE_Group.clear()
             self.LE_Group.setFocus()
+            self.BT_WithDrawal.hide()
+            self.BT_Deposit.hide()
+            self.BT_AccountSearch.hide()
+            self.L_Serve.hide()
         else:
             print("Correct Account!\n")
             self.AccSig.emit(self.Account,self.Account_dic[self.Account])

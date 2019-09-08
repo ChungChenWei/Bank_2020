@@ -15,6 +15,11 @@ import shutil
 ####'''
 # Under Develope
 # 1.小隊積分
+# 0106 0306 0406
+# 2.focus調整
+# 3.table 順序
+# 4.進入mode(切換)要顯示
+# 5.返回鍵可以設定(event)
 ####
 
 if __name__ == "__main__":
