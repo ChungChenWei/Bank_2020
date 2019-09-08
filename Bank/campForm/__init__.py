@@ -30,12 +30,7 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Initial
         #self.LCD_Length.display("5")
         #self.LCD_Interest_Rate.display("2")
-        self.LE_Group.setFocus()
-        self.Account = ""
-        self.BT_WithDrawal.hide()
-        self.BT_Deposit.hide()
-        self.BT_AccountSearch.hide()
-        self.L_Serve.hide()
+        self.MessageHide()
 
         # Timer setup
         self.Time_Refresh()
@@ -53,9 +48,9 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
     def Time_Refresh(self):
         Date = QtCore.QDateTime.currentDateTime()
         self.Time_Out = Date.toString("hh:mm:ss")
-        Count_Time = int(Date.toString("mm"))
-        Count_Out = int(Date.toString("ss"))
-        if(Count_Time % 5 == 0 and Count_Out % 60 == 0):
+        Count_Min = int(Date.toString("mm"))
+        Count_Sec = int(Date.toString("ss"))
+        if(Count_Min % 5 == 0 and Count_Sec % 60 == 0):
             print("Time to add")
             self.IncreRateSig.emit(self.Account)
         self.LCD_Time.display(self.Time_Out)
@@ -71,28 +66,41 @@ class CampUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Checking for Account Existence
         if(self.Account not in self.Account_dic.keys()):
             QtWidgets.QMessageBox.warning(self,'警告','查無學號!')
-            self.Account = ""
-            self.LE_Group.clear()
-            self.LE_Group.setFocus()
-            self.BT_WithDrawal.hide()
-            self.BT_Deposit.hide()
-            self.BT_AccountSearch.hide()
-            self.L_Serve.hide()
+            self.MessageHide()
         else:
             print("Correct Account!\n")
             self.AccSig.emit(self.Account,self.Account_dic[self.Account])
-            self.BT_WithDrawal.show()
-            self.BT_Deposit.show()
-            self.BT_AccountSearch.show()
-            self.L_Serve.show()
-
-            # Some Success Message Appare on the Ui        
+            self.MessageShow()        
 
     def Group_Enter(self):
         if(self.sender().objectName()=="BT_WithDrawal"):
             self.WithOpenSig.emit()
+            print("Withdrawal!")
         elif(self.sender().objectName()=="BT_Deposit"):
-           self.DepoOpenSig.emit()
+            self.DepoOpenSig.emit()
+            print("Deposit!")
         elif(self.sender().objectName()=="BT_AccountSearch"):
             self.FinalOpenSig.emit()
-        
+            print("Inquiry!\n")
+
+    def keyPressEvent(self, event):
+        if(event.key()==QtCore.Qt.Key_Escape):
+            self.MessageHide()
+
+    def MessageShow(self):
+        self.BT_WithDrawal.show()
+        self.BT_Deposit.show()
+        self.BT_AccountSearch.show()
+        self.L_Serve.show()
+        self.L_ServeEN.show()
+    def MessageHide(self):
+        self.Account = ""
+        self.LE_Group.clear()
+        self.LE_Group.setFocus()
+        self.BT_WithDrawal.hide()
+        self.BT_Deposit.hide()
+        self.BT_AccountSearch.hide()
+        self.L_Serve.hide()
+        self.L_ServeEN.hide()
+
+            

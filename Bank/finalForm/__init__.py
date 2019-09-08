@@ -24,7 +24,11 @@ class FinalUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Table Setup
         header = self.Table.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-    
+
+    def keyPressEvent(self, event):
+        if(event.key()==QtCore.Qt.Key_Escape):
+            self.close()
+
     def Open_Init(self,Account,Money,Trade):
         # Display Setup
         self.LE_Account.setText(Account)
@@ -42,8 +46,12 @@ class FinalUi(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def Table_Update(self,Input):
         self.Table.clearContents()
+        Input_List = []
         for i,row in enumerate(Input):
-            self.Table.setRowCount(i+1)
+            Input_List.append(row)
+        self.Table.setRowCount(len(Input_List))
+        Input_List.reverse()
+        for i,row in enumerate(Input_List):
             for j in range(4):
                 self.Table.setItem(i,j,self.ItemCreatorWithVHC(row[j]))
 

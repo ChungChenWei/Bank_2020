@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1590</width>
     <height>755</height>
    </rect>
   </property>
@@ -188,7 +188,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>Chekiang Sung</family>
+            <family>SetoFont</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -330,6 +330,9 @@
           <property name="text">
            <string>返回 RETURN</string>
           </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="0" column="0">
@@ -339,6 +342,9 @@
             <family>標楷體</family>
             <pointsize>20</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <attribute name="horizontalHeaderStretchLastSection">
            <bool>false</bool>
@@ -434,8 +440,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>22</height>
+     <width>1590</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

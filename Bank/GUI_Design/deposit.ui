@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1590</width>
     <height>755</height>
    </rect>
   </property>
@@ -107,7 +107,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>Chekiang Sung</family>
+            <family>SetoFont</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -257,7 +257,7 @@
            <widget class="QLabel" name="label">
             <property name="font">
              <font>
-              <family>BiauKai</family>
+              <family>標楷體</family>
               <pointsize>30</pointsize>
              </font>
             </property>
@@ -302,6 +302,9 @@
           <property name="text">
            <string>確認CONFIRM</string>
           </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="0" column="1">
@@ -320,6 +323,9 @@
           </property>
           <property name="text">
            <string>取消CANCEL</string>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -372,8 +378,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>22</height>
+     <width>1590</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

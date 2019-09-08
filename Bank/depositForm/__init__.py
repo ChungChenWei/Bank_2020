@@ -36,6 +36,10 @@ class DepositUi(QtWidgets.QMainWindow, Ui_MainWindow):
         self.LE_Deposit.setText("")
         self.LE_Deposit.setFocus()
 
+    def keyPressEvent(self, event):
+        if(event.key()==QtCore.Qt.Key_Escape):
+            self.close()
+
     def Deposit(self):
         # Try to transfer the LineEdit Content to Integer
         try:

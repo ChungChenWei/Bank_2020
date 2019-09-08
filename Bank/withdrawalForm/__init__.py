@@ -34,7 +34,11 @@ class WithdrawalUi(QtWidgets.QMainWindow, Ui_MainWindow):
         # Display Update
         self.LCD_Total.display(str(self.AccountMoney))
         self.LE_Withdrawal.setText("")
-        self.LE_Withdrawal.setFocus()    
+        self.LE_Withdrawal.setFocus()   
+        
+    def keyPressEvent(self, event):
+        if(event.key()==QtCore.Qt.Key_Escape):
+            self.close() 
 
     def WithDrawal(self):
         # Try to transfer the LineEdit Content to Integer
