@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1590</width>
-    <height>800</height>
+    <width>1280</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,70 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
   </property>
   <property name="font">
    <font>
@@ -33,7 +97,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_7">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,2,2,4,2,4,1,2">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,2,2,4,1,4,1,2">
       <item>
        <layout class="QGridLayout" name="Grid_Title">
         <property name="leftMargin">
@@ -43,7 +107,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>SetoFont</family>
+            <family>Chekiang Sung</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -281,9 +345,46 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="L_Serve">
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>10</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>10</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>127</red>
+                <green>127</green>
+                <blue>127</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
           <property name="font">
            <font>
             <family>標楷體</family>
@@ -295,48 +396,59 @@
           </property>
          </widget>
         </item>
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="L_ServeEN">
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>10</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>10</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>127</red>
+                <green>127</green>
+                <blue>127</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="font">
+           <font>
+            <family>Helvetica</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>PLEASE SELECT A TRANSACTION</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="Grid_Button" columnstretch="4,1,4,1,4">
-        <item row="0" column="2">
-         <widget class="QPushButton" name="BT_Deposit">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Times New Roman</family>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>帳戶存款 DEPOSIT</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="BT_WithDrawal">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Times New Roman</family>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>帳戶提款 WITHDRAWAL</string>
-          </property>
-         </widget>
-        </item>
+       <layout class="QGridLayout" name="Grid_Button" columnstretch="4,0,0,0,0">
         <item row="0" column="1">
          <spacer name="HSA1">
           <property name="orientation">
@@ -375,6 +487,44 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="BT_WithDrawal">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>帳戶提款 WITHDRAWAL</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="BT_Deposit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>帳戶存款 DEPOSIT</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -425,8 +575,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1590</width>
-     <height>25</height>
+     <width>1280</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

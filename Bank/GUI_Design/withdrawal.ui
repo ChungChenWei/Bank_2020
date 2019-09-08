@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1590</width>
-    <height>800</height>
+    <width>1280</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,70 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>102</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
   </property>
   <property name="font">
    <font>
@@ -43,7 +107,7 @@
          <widget class="QLabel" name="Title">
           <property name="font">
            <font>
-            <family>SetoFont</family>
+            <family>Chekiang Sung</family>
             <pointsize>60</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -116,7 +180,7 @@
              </font>
             </property>
             <property name="digitCount">
-             <number>10</number>
+             <number>5</number>
             </property>
             <property name="value" stdset="0">
              <double>0.000000000000000</double>
@@ -162,21 +226,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="LE_Withdrawal">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="2">
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
@@ -189,6 +238,32 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="0" column="1">
+         <layout class="QGridLayout" name="gridLayout" columnstretch="1,0">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <family>BiauKai</family>
+              <pointsize>30</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>萬元</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="LE_Withdrawal">
+            <property name="font">
+             <font>
+              <pointsize>25</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -294,8 +369,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1590</width>
-     <height>25</height>
+     <width>1280</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
